@@ -9,6 +9,9 @@ class VertexNode {
      int getValue(){
          return this.value;
      }
+     void setValue(int value){
+         this.value = value;
+     }
      EdgeNode getEdgeNode(){
          return this.edgeNode;
      }
