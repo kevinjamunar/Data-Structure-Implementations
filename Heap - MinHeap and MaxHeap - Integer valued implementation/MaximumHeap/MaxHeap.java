@@ -1,4 +1,6 @@
 package Heap.MaximumHeap;
+import Heap.HeapNode;
+
 
 public class MaxHeap {
 
@@ -27,6 +29,7 @@ public class MaxHeap {
      */
     public HeapNode removeMaximum(){
         //swap the top of the heap with the last element in the heap & remove the last element
+        HeapNode maxNode = maxHeap[0];
         HeapNode temp = maxHeap[size];
         maxHeap[size] = maxHeap[0];
         maxHeap[0] = temp;
@@ -34,7 +37,7 @@ public class MaxHeap {
         size--;
 
         siftDown();
-        return temp;
+        return maxNode;
     }
 
     /*
@@ -125,7 +128,7 @@ public class MaxHeap {
        accepts a key(index to the heap) and returns that key's parent.
      */
     private int getParentKey(int key){
-        return key/2;
+        return (key-1)/2;
     }
     /*
        Accepts a key(index to the heap) and returns that key's left child.
@@ -161,7 +164,12 @@ public class MaxHeap {
     public int getSize(){
         return this.size;
     }
-
+    /*
+        returns the node with the largest value.
+     */
+    public HeapNode getMaxNode(){
+        return maxHeap[0];
+    }
     /*
         prints the heap in an array format.
      */
