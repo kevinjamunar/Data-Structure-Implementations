@@ -1,4 +1,5 @@
 package Heap.MinimumHeap;
+import Heap.HeapNode;
 
 public class MinHeap{
 
@@ -28,6 +29,7 @@ public class MinHeap{
      */
     public HeapNode removeMinimum(){
         //swap the top of the heap with the last element in the heap & remove the last element
+        HeapNode minNode = minHeap[0];
         HeapNode temp = minHeap[size];
         minHeap[size] = minHeap[0];
         minHeap[0] = temp;
@@ -35,7 +37,7 @@ public class MinHeap{
         size--;
 
         siftDown();
-        return temp;
+        return minNode;
     }
 
     /*
@@ -127,7 +129,7 @@ public class MinHeap{
        accepts a key(index to the heap) and returns that key's parent.
      */
     private int getParentKey(int key){
-        return key/2;
+        return (key-1)/2;
     }
     /*
        Accepts a key(index to the heap) and returns that key's left child.
@@ -164,6 +166,12 @@ public class MinHeap{
         return this.size;
     }
 
+    /*
+        returns the node with the smallest value.
+     */
+    public HeapNode getMinNode(){
+        return minHeap[0];
+    }
     /*
         prints the heap in an array format.
      */
